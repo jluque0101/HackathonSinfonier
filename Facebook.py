@@ -41,8 +41,24 @@ print "----------------"
 response = requests.get('https://graph.facebook.com/v2.5/me?fields=feed&access_token=CAACEdEose0cBAJlEpVvJvEIigS8ZBJPfVfAHTIkERuW5niPndsrXcPHcxepQ3E7jAXOdRDIuqoohBZBQIkGaNgFSSPqn6s4QL6UhFu8EodosMC53qXA05ZA3oBragS3wKYDK00ZBTYZBb5sdZCY438wGxgSU8aWEQpDCOBWAFaUh1BsnVHTkcwxH9CnNGhxY3tdvfZBzPRXPZBmAmJw5cXhN')
 posts = response.json()
 
-for post in posts:
-    print ("{1} = {1}".format("story", posts[post]))
+posts = posts['feed']
+
+datos = posts['data']
+
+for p in datos:
+    print "Fecha de creacion: ",  p['created_time']
+    if "story" in p.keys():
+        print "Mensaje: ", p['story'].encode('utf-8')
+    if "message" in p.keys():
+        print "Mensaje: ", p['message'].encode('utf-8')
+    print "Id del post: ", p['id']
+    print "-------------"
+
+
+
+
+
+#    print ("{1} = {1}".format("story", posts[post]))
 #posts = graph.get_object("/me/feed")
 #print posts
 #for post in posts['data']:
