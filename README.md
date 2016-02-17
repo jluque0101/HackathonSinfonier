@@ -1,2 +1,12 @@
 # HackatonSinfonier
-Repositorio para el hackaton de sinfonier
+
+### Generate dependencies
+
+``` pip freeze > requirements.txt  ```
+
+
+### Install dependencies
+
+
+``` pip install -U -r requirements.txt ```
+
