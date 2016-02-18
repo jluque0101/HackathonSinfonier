@@ -46,8 +46,8 @@ class BoltGetInfo(basesinfonierbolt.BaseSinfonierBolt):
 	self.perfil = self.graph.get_object("me")
 
 	#Obetenemos la información
-	self.name = self.perfil['name'].encode('utf-8')
-	self.id_f = self.perfil['id']
+	self.name2 = (self.perfil['name'])
+	self.name=unicodedata.normalize('NFKD', self.name2).encode('ascii','ignore')
 
 	#Nuevos campos de la tupla
 	self.addField("nombre",self.name)
