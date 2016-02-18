@@ -9,7 +9,8 @@ import requests
 
 def print_userinfo(post):
     print(post['created_time'])
-    print(post['message'])
+    if "message" in post.keys():
+        print(post['message'])
 
 
 # You'll need an access token here to do anything.  You can get a temporary one
