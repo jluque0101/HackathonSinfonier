@@ -61,4 +61,4 @@ class BoltGetInfo(basesinfonierbolt.BaseSinfonierBolt):
 
         pass
 
-BoltGetInfo.run()
+BoltGetInfo().run()
