@@ -26,8 +26,8 @@
 
 
 import basesinfonierbolt
-import datetime
 import facebook
+import unicodedata
 
 class BoltGetInfo(basesinfonierbolt.BaseSinfonierBolt):
 
@@ -52,7 +52,7 @@ class BoltGetInfo(basesinfonierbolt.BaseSinfonierBolt):
 	#Nuevos campos de la tupla
 	self.addField("nombre",self.name)
 	self.addField("id",self.id_f)
-	self.addField("token",self.token)
+
 
 
         self.emit()
