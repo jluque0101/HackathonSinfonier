@@ -26,9 +26,8 @@
 
 
 import basesinfonierbolt
+import datetime
 import facebook
-import requests
-import unicodedata
 
 class BoltGetInfo(basesinfonierbolt.BaseSinfonierBolt):
 
@@ -38,21 +37,24 @@ class BoltGetInfo(basesinfonierbolt.BaseSinfonierBolt):
 
     def userprepare(self):
 
-        self.token = self.getParam("token")
+
+	self.token = self.getParam("token")
 
     def userprocess(self):
 
-	#Conseguimos el nodo con informacion del perfil a partir del token
-	self.graph = facebook.GraphAPI(self.token)
+      	self.graph = facebook.GraphAPI(self.token)
 	self.perfil = self.graph.get_object("me")
 
 	#Obetenemos la información
-	self.name = self.profile['name'].encode('utf-8')
-	self.id_f = self.profile['id']
+	self.name = self.perfil['name'].encode('utf-8')
+	self.id_f = self.perfil['id']
 
 	#Nuevos campos de la tupla
 	self.addField("nombre",self.name)
 	self.addField("id",self.id_f)
+	self.addField("token",self.token)
+
+
         self.emit()
 
     def userclose(self):
