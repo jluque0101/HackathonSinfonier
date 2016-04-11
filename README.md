@@ -1,4 +1,4 @@
-# HackatonSinfonier
+# HackathonSinfonier
 
 ### Generate dependencies
 
